@@ -1,0 +1,32 @@
+{
+  "displayName": "Advent Of Code",
+  "name": "AdventOfCode",
+  "version": "0.0.1",
+  "description": "My Advent of Code ",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix src/**.ts",
+    "oldWatch": "npm run build && npm link && nodemon",
+    "watch": "nodemon",
+    "build": "rimraf ./dist && tsc",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "js",
+    "ignore": [],
+    "exec": "node src/day_2_puz_1.js data/day_2_puz_1.sample; node src/day_2_puz_1.js data/day_2_puz_1",
+    "signal": "SIGTERM",
+    "env": {
+      "NODE_OPTIONS": "--trace-warnings"
+    }
+  },
+  "dependencies": {
+    "debug": "^4.3.x"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
